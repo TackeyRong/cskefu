@@ -6,8 +6,8 @@
 # constants
 baseDir=$(cd `dirname "$0"`;pwd)
 appHome=$baseDir/..
-registryPrefix=
-imagename=cskefu/contact-center
+registryPrefix=registry.cn-guangzhou.aliyuncs.com/
+imagename=private-wen/contact-center
 
 # functions
 
