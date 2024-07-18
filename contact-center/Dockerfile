@@ -1,4 +1,4 @@
-FROM chatopera/java:17
+FROM registry.cn-guangzhou.aliyuncs.com/private-wen/java:17
 MAINTAINER Hai Liang Wang <hain@chatopera.com>
 
 ARG DEBIAN_FRONTEND=noninteractive
