@@ -54,7 +54,7 @@ services:
       - activemq
 
   activemq:
-    image: cskefu/activemq:5.14.3
+    image: registry.cn-guangzhou.aliyuncs.com/private-wen/activemq:5.14.3
     restart: always
     environment:
       - ACTIVEMQ_ADMIN_LOGIN=admin
@@ -71,7 +71,7 @@ services:
       - "${ACTIVEMQ_PORT3:-8053}:61613"
 
   mysql:
-    image: cskefu/mysql:5.7
+    image: registry.cn-guangzhou.aliyuncs.com/private-wen/mysql:5.7
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWD:-123456}
@@ -84,7 +84,7 @@ services:
     command: --max_allowed_packet=32505856
 
   redis:
-    image: cskefu/redis:5.0.5
+    image: registry.cn-guangzhou.aliyuncs.com/private-wen/redis:5.0.5
     environment:
       - REDIS_PASSWORD=${DB_PASSWD:-123456}
     restart: always
