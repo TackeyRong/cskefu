@@ -4,7 +4,7 @@
 ###########################################
 
 # constants
-baseDir=$(cd `dirname "$0"`;pwd)
+baseDir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 appHome=$baseDir/..
 registryPrefix=registry.cn-guangzhou.aliyuncs.com/
 imagename=private-wen/contact-center
@@ -34,12 +34,7 @@ docker build --build-arg VCS_REF=$PACKAGE_VERSION \
 
 if [ $? -eq 0 ]; then
     docker tag $registryPrefix$imagename:$PACKAGE_VERSION $registryPrefix$imagename:develop
-    # 获取上2级路径目录
-    PARENT_DIR="$(dirname "$(dirname "$baseDir")")"
-    # 修改.env镜像标签
-    
-    sed -i "s|^\(CC_IMAGE=.*:\).*$|\1$PACKAGE_VERSION|" "$PARENT_DIR"/.env
-else 
+else
     echo "Build contact-center failure."
     exit 1
 fi
