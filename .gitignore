@@ -16,7 +16,6 @@ sftp-config.json
 ~$*.ppt*
 ~$*.doc*
 backups/
-.env
 build.gradle
 .vscode/
 nohup.out
