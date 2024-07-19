@@ -67,3 +67,18 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Pull latest code
+        run: git pull origin develop
+
+      - name: Deploy with Docker Compose
+        run: |
+          cd $GITHUB_WORKSPACE
+          docker-compose down
+          docker-compose up -d
