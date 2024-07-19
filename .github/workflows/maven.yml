@@ -63,7 +63,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add ./.env
-          git commit -m "Update CC_IMAGE value to ${{ env.PACKAGE_VERSION }}"
+          git commit -m "Update CC_IMAGE value to ${{ env.PACKAGE_VERSION }} [skip ci]"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
